@@ -1,64 +1,43 @@
 package ru.geekbrains;
 
 public class HomeWorkApp {
+
     public static void main(String[] args) {
-        printThreeWords();
-        checkSumSign();
-        printColor();
-        compareNumbers();
+        System.out.println(within10and20(6, 5));
+
+        isPositiveOrNegative(0);
+
+        System.out.println(isNegative(0));
+
+        printWordNTimes("строка", 5);
+
+        System.out.println("Высокосный год: " + isLeapYear(2024));
     }
 
-    /**
-     * 2. Создайте метод printThreeWords(), который при вызове должен отпечатать
-     * в столбец три слова: Orange, Banana, Apple.
-     */
-    private static void printThreeWords() {
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
+    public static boolean within10and20(int x1, int x2) {
+        int summa = x1 + x2;
+        return summa >= 10 && summa <= 20;
     }
 
-    /**
-     * 3. Создайте метод checkSumSign(), в теле которого объявите две int переменные a и b,
-     * и инициализируйте их любыми значениями, которыми захотите. Далее метод должен просуммировать
-     * эти переменные, и если их сумма больше или равна 0, то вывести в консоль
-     * сообщение “Сумма положительная”, в противном случае - “Сумма отрицательная”;
-     */
-    private static void checkSumSign() {
-        int a = -30;
-        int b = 10;
-
-        //noinspection ConstantConditions
-        if (a + b >= 0) System.out.println("Сумма положительная.");
-        else System.out.println("Сумма отрицательная.");
+    public static void isPositiveOrNegative(int x) {
+        if (x >= 0) {
+            System.out.println("число " + x + " положительное");
+        } else {
+            System.out.println("число " + x + " отрицательное");
+        }
     }
 
-    /**
-     * 4. Создайте метод printColor() в теле которого задайте int переменную value и инициализируйте
-     * ее любым значением. Если value меньше 0 (0 включительно), то в консоль метод должен вывести
-     * сообщение “Красный”, если лежит в пределах от 0 (0 исключительно) до 100 (100 включительно),
-     * то “Желтый”, если больше 100 (100 исключительно) - “Зеленый”;
-     */
-    private static void printColor() {
-        int value = -100;
-
-        //noinspection ConstantConditions
-        if (value <= 0 ) System.out.println("Красный");
-        else if (value <= 100) System.out.println("Желтый");
-        else System.out.println("Зеленый");
+    public static boolean isNegative(int x) {
+        return x >= 0;
     }
 
-    /**
-     * 5. Создайте метод compareNumbers(), в теле которого объявите две int переменные a и b,
-     * и инициализируйте их любыми значениями, которыми захотите. Если a больше или равно b,
-     * то необходимо вывести в консоль сообщение “a >= b”, в противном случае “a < b”;
-     */
-    private static void compareNumbers() {
-        int a = 10;
-        int b = 9;
+    public static void printWordNTimes(String word, int times) {
+        for (int i = 0; i < times; i++) {
+            System.out.println(word);
+        }
+    }
 
-        //noinspection ConstantConditions
-        if (a >= b) System.out.println("a >= b");
-        else System.out.println("a < b");
+    public static boolean isLeapYear(int year) {
+        return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
     }
 }
